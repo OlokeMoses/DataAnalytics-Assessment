@@ -7,11 +7,7 @@ SELECT * FROM adashi_staging.plans_plan;
 SELECT * FROM adashi_staging.withdrawals_withdrawal;
 SELECT * FROM adashi_staging.savings_savingsaccount;
 
-SET GLOBAL net_read_timeout = 600;
-SET GLOBAL net_write_timeout = 600;
-SET GLOBAL wait_timeout = 600;
-SET GLOBAL interactive_timeout = 600;
-
+-- we try to check if some of the colums allready has index 
 SHOW INDEXES FROM savings_savingsaccount;
 SHOW INDEXES FROM plans_plan;
 
