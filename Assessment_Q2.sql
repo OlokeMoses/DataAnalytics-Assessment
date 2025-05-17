@@ -1,10 +1,5 @@
-SELECT * FROM adashi_staging.withdrawals_withdrawal;
--- Query to categorize customers based on their transaction frequency
--- The categorization is based on the average number of transactions per month
 
 -- Query to categorize customers based on their transaction frequency
--- The categorization is based on the average number of transactions per month
-
 SELECT
     -- Categorize based on the average transactions per month
     CASE
@@ -28,4 +23,5 @@ FROM (
 JOIN
     users_customuser u ON t.owner_id = u.id
 GROUP BY
-    frequency_category; -- Group by the frequency category
+    frequency_category;  -- Group by the frequency category
+
