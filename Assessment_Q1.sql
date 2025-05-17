@@ -32,7 +32,7 @@ LEFT JOIN (
     FROM
         savings_savingsaccount ssa
     WHERE
-        ssa.amount > 0 -- Only funded savings plans
+        ssa.amount > 0  -- Only funded savings plans
     GROUP BY
         ssa.owner_id
 ) savings ON u.id = savings.owner_id
@@ -45,14 +45,15 @@ LEFT JOIN (
     FROM
         plans_plan pp
     WHERE
-        pp.amount > 0 AND pp.is_a_fund = 1 -- Only funded investment plans
+        pp.amount > 0 AND pp.is_a_fund = 1  -- Only funded investment plans
     GROUP BY
         pp.owner_id
 ) investments ON u.id = investments.owner_id
 WHERE
-    (savings.savings_count > 0 OR investments.investment_count > 0) -- Only customers with funded savings or investment plans
+    (savings.savings_count > 0 OR investments.investment_count > 0)  -- Only customers with funded savings or investment plans
 HAVING
-    savings_count > 0 AND investment_count > 0 -- Both savings and investment plans
+    savings_count > 0 AND investment_count > 0  -- Both savings and investment plans
 ORDER BY
     total_deposits DESC;
+
 
