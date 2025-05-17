@@ -1,5 +1,4 @@
 -- Query to flag active accounts with no inflow transactions in the last 365 days
-
 SELECT
     pp.id AS plan_id,
     ssa.owner_id,
