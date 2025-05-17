@@ -1,7 +1,5 @@
-SELECT * FROM adashi_staging.savings_savingsaccount;
 
 -- Query to calculate Customer Lifetime Value (CLV) for each customer
-
 SELECT
     u.id AS customer_id,
     CONCAT(u.first_name, ' ', u.last_name) AS name,
@@ -16,7 +14,7 @@ FROM
 JOIN
     savings_savingsaccount ssa ON u.id = ssa.owner_id
 WHERE
-    ssa.transaction_status = 'Confirmed' -- Only confirmed transactions
+    ssa.transaction_status = 'Confirmed'  -- Only confirmed transactions
 GROUP BY
     u.id
 ORDER BY
